@@ -98,6 +98,7 @@
 
         socket.on('heat_data', function (msg) {
             ddr_heat_data = msg;
+            console.log(msg);
         });
 
         socket.on('class_data', function (msg) {

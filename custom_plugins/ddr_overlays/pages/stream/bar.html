@@ -76,7 +76,7 @@
         socket.emit('get_pi_time');
 
         socket.emit('load_data', {'load_types': [
-            'current_heat',
+            'current_heat', 'class_data'
         ]});
 
         socket.on('current_heat', function (msg) {
@@ -95,11 +95,13 @@
         socket.on('race_status', default_handler['race_status']);
 
         socket.on('heartbeat', default_handler['heartbeat']);
-
+        // socket
         socket.on('leaderboard', function (msg) {
+            console.log(msg);
             if (msg && 'last_race' in msg) {
                 var race = msg.last_race;
-            } else {
+            }  
+            if (msg && 'current' in msg) {
                 var race = msg.current;
             }
 

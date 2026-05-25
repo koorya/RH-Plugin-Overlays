@@ -1,5 +1,5 @@
 /* General */
-
+/* foo bar baz */
 h1, h2, h3, h4, h5 {
     font-family: teko, Arial, Helvetica, sans-serif;
 }
@@ -12,6 +12,9 @@ h1, h2, h3, h4, h5 {
     background-color: #000000DC;
     border-radius: 16px;
     color: #fff;
+}
+.consecutive{
+    font-size: 40px;
 }
 
 #ddr_nextup #nextup_title {
@@ -357,7 +360,6 @@ h1, h2, h3, h4, h5 {
 #ddr_frame_topbar #block_left, #ddr_frame_topbar #block_right {
     float: left;
     height: 76px;
-    #background-color: #b50808;
     width: 160px;
 }
 
@@ -402,6 +404,9 @@ h1, h2, h3, h4, h5 {
 
 /* FAI LEADERBOARD32 */
 
+#ddr_leaderboard32{
+    background-color: white;
+}
 #ddr_leaderboard32.leaderboard_fs {
     margin: 0;
     padding: 0;
@@ -427,6 +432,24 @@ h1, h2, h3, h4, h5 {
     height: 10px!important;
     overflow: hidden;
 }
+#ddr_leaderboard32.leaderboard_fs .leaderboard_fai_page th.consecutive  ,td.consecutive   {
+    padding-right: 0.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+#ddr_leaderboard32 .leaderboard_fai_page.active
+{
+    height: 100%;
+}
+#ddr_leaderboard32 td.pilot {
+    white-space: nowrap;
+}
+#leaderboard_fai_p2 > div > table {
+    height: unset;
+
+}
+
 
 #ddr_leaderboard32.leaderboard_fs .leaderboard_fai_page tr {
     height: calc( calc(100vh - 40px) / 8);
@@ -436,6 +459,7 @@ h1, h2, h3, h4, h5 {
 #ddr_leaderboard32 .avatar {
     width: 64px;
     height: 64px;
+    min-width: 64px;
 }
 
 #ddr_leaderboard32 .avatar img {
@@ -444,12 +468,26 @@ h1, h2, h3, h4, h5 {
     object-fit: cover;
 }
 
+
+
 #ddr_leaderboard32 .leaderboard_fai_page {
     display: none;
 }
 
 #ddr_leaderboard32 .leaderboard_fai_page.active {
     display: block;
+    overflow: hidden;
+}
+#ddr_leaderboard32  table{
+    border: none;
+    table-layout: fixed;
+    width: 100%; /* Или любая другая ширина */
+    height: unset;
+}
+#ddr_leaderboard32  table > thead > tr > td.pilot{
+    width: 50px;
+    max-width: 50px;
+    overflow: scroll;
 }
 
 #ddr_leaderboard32 td, #ddr_leaderboard32 th {
@@ -475,12 +513,23 @@ h1, h2, h3, h4, h5 {
     object-fit: cover;
 }
 
+
 #ddr_leaderboard32 td.pos {
     font-size: 48px;
     font-weight: 800;
     padding-top: 24px;
+    width: 60px;
+    max-width: 60px;
+}
+
+#ddr_leaderboard32 th.pos{
+    width: 60px;
+}
+#ddr_leaderboard32 th.flags{
     width: 40px;
 }
+
+
 
 #ddr_leaderboard32 td.source {
    width: 260px;
@@ -488,6 +537,7 @@ h1, h2, h3, h4, h5 {
 
 #ddr_leaderboard32 td.pilot {
     width: 260px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #ddr_leaderboard32 #leaderboard_pagination {
@@ -501,7 +551,9 @@ h1, h2, h3, h4, h5 {
 }
 
 #ddr_leaderboard32.leaderboard_fs td, #ddr_leaderboard32.leaderboard_fs th {
-    font-size: 20px;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* tut */
 }
 
 #ddr_leaderboard32.leaderboard_fs td.pos{
