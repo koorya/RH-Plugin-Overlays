@@ -594,19 +594,31 @@ function build_elimination_brackets(race_bracket_type, race_class_id, ddr_pilot_
                 let pilot_node_index = slot.node_index;
                 const channel = rotorhazard.nodes[pilot_node_index].fObj.key || '-';
 
-                html += '<div class="bracket_race_pilot" style="display: flex; justify-content: space-between;">';
+                html += '<div class="bracket_race_pilot" style="">';
                 
-                html += '<div class="channel-block" ><span class="ch">'+(channel)+'</span></div>'
 
 
+                html += '<div style="display: flex; flex-direction: column; align-items: start;">'
+                
+                html += '<div class="pilot_name">'+pilot.callsign+"</div>";
+                
+                html += '<div style="display: flex; justify-content: flex-start; width: 120px;">'
                 html += '<div class="avatar"><img src="' + pilotImg + '"></div>';
-                // html += '<div class="flag"><img src="' + flagImg + '" alt="USA"></div>';
                 html += '<div class="flag"><img src="' + flagImg + '" alt="USA"></div>';
+                html += '</div>' 
 
-                html += '<div class="pilot_name">' + [
-                    "<div>"+pilot.callsign+"</div>", 
-                    // "<div>"+place+"</div>"
-                ].join(' ')+ '</div>';
+                html += '</div>' 
+
+
+
+                html += '<div style="display: flex; flex-direction: column; align-items: flex-end;">'
+                html += `<div class="pilot_name" style="height: 20px; 
+                
+                  display: flex;
+                    align-items: center; /* Centers vertically */
+                    justify-content: center; 
+                
+                "><span class="ch">`+(channel)+'</span></div>';
 
                 html += '<div class="pilot_name" style="margin-left: auto" >'+
                 (rounds_plases?.map?.((place, idx, {length})=>((!isNaN(place) ? 
@@ -619,10 +631,11 @@ function build_elimination_brackets(race_bracket_type, race_class_id, ddr_pilot_
                                  +   (my_race_rounds[idx].find(r=>length-1===idx && r.pilot_id===pilot.pilot_id)?.total_time?.slice(0,-2) || "")
 
                 )
-                 :""))).join("") || "")
-                 +"</div>"+
+                 :""))).join("") || "-")
+                 +"</div>";
+                 html += '</div>';
         
-                 '</div>';
+                 html +='</div>';
             } else {
                 let method_text = get_method_descriptor(ddr_pilot_data, ddr_heat_data, ddr_class_data, slot.method, slot.seed_id, slot.seed_rank, slot.pilot_id)
                 html += '<div class="bracket_race_pilot">';
