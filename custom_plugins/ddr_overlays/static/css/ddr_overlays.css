@@ -1,5 +1,5 @@
 /* General */
-/* foo bar baz */
+
 h1, h2, h3, h4, h5 {
     font-family: teko, Arial, Helvetica, sans-serif;
 }
@@ -513,7 +513,6 @@ h1, h2, h3, h4, h5 {
     object-fit: cover;
 }
 
-
 #ddr_leaderboard32 td.pos {
     font-size: 48px;
     font-weight: 800;
@@ -528,8 +527,6 @@ h1, h2, h3, h4, h5 {
 #ddr_leaderboard32 th.flags{
     width: 40px;
 }
-
-
 
 #ddr_leaderboard32 td.source {
    width: 260px;
@@ -553,7 +550,6 @@ h1, h2, h3, h4, h5 {
 #ddr_leaderboard32.leaderboard_fs td, #ddr_leaderboard32.leaderboard_fs th {
     font-size: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    /* tut */
 }
 
 #ddr_leaderboard32.leaderboard_fs td.pos{
