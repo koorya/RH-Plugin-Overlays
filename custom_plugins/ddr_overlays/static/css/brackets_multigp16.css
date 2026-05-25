@@ -30,9 +30,9 @@
 }
 
 .bracket_race_title {
-    font-size: 22px;
-    font-weight: 200;
-    padding: 4px;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 2px;
     text-align: center;
     background-color: #013e77;
     color: #fff;
@@ -84,16 +84,20 @@
 }
 
 .bracket_race_pilot .pilot_name {
-    font-size: 20px;
-    font-weight: 200;
-    padding-top: 5px;
+    font-size: 18px;
+    font-weight: 800;
+    padding-top: 2px;
+    /* width: 150px; */
+    /* padding-left: 5px; */
 }
 
 .bracket_race_pilot .no_pilot {
     font-size: 18px;
-    font-weight: 200;
-    padding-top: 6px;
+    font-weight: 800;
+    padding-top: 2px;
     color: #6c6c6c;
+  /* padding-left: 5px; */
+
 }
 
 .bracket_column {

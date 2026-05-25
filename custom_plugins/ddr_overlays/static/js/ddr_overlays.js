@@ -591,8 +591,13 @@ function build_elimination_brackets(race_bracket_type, race_class_id, ddr_pilot_
                 // const place =  my_race;
                 let flagImg = getFlagURL(pilot.pilot_id, ddr_pilot_data);
                 let pilotImg = getPilotImgURL(pilot);
+                let pilot_node_index = slot.node_index;
+                const channel = rotorhazard.nodes[pilot_node_index].fObj.key || '-';
 
                 html += '<div class="bracket_race_pilot" style="display: flex; justify-content: space-between;">';
+                
+                html += '<div class="channel-block" ><span class="ch">'+(channel)+'</span></div>'
+
 
                 html += '<div class="avatar"><img src="' + pilotImg + '"></div>';
                 // html += '<div class="flag"><img src="' + flagImg + '" alt="USA"></div>';
@@ -606,13 +611,12 @@ function build_elimination_brackets(race_bracket_type, race_class_id, ddr_pilot_
                 html += '<div class="pilot_name" style="margin-left: auto" >'+
                 (rounds_plases?.map?.((place, idx, {length})=>((!isNaN(place) ? 
                 
-                // ((my_race_rounds[place-1]?.total_time || "" )+
                 (
 
 
                  " | <b style='font-weight: 900;'>" + place + "</b> | "
                 
-                                 +   (my_race_rounds[idx].find(r=>length-1===idx && r.pilot_id===pilot.pilot_id)?.total_time || "")
+                                 +   (my_race_rounds[idx].find(r=>length-1===idx && r.pilot_id===pilot.pilot_id)?.total_time?.slice(0,-2) || "")
 
                 )
                  :""))).join("") || "")
