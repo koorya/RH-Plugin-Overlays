@@ -26,6 +26,7 @@
     overflow: hidden;
     margin-bottom: 10px;
     background-color: #fff;
+    min-width: 227px;
     /*display: inline-block;*/
 }
 
@@ -136,18 +137,18 @@
 }
 
 .bracket_group:nth-child(1) .bracket_column:nth-child(2) .bracket_race {
-    margin-top: 150px;
+    margin-top: 0px;
 }
 
 .bracket_group:nth-child(1) .bracket_column:nth-child(2) .bracket_race:nth-child(2) {
-    margin-top: 200px;
+    margin-top: 0px;
 }
 
 .bracket_group:nth-child(2) .bracket_column:nth-child(3) .bracket_race, .bracket_group:nth-child(2) .bracket_column:nth-child(4) .bracket_race {
-    margin-top: 140px;
+    margin-top: 0px;
 }
 
 .bracket_group:nth-child(1) .bracket_column:nth-child(3) .bracket_race, .bracket_group .bracket_column:nth-child(4) .bracket_race {
-    margin-top: 340px;
+    margin-top: 0px;
 }
 
