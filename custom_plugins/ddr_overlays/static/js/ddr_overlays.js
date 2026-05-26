@@ -561,7 +561,7 @@ function build_elimination_brackets(race_bracket_type, race_class_id, ddr_pilot_
     for (let i = 0; i < elimination_heats.length; i++) {
         const heat = elimination_heats[i];
         let html = '<div class="bracket_race">';
-        html += '<div class="bracket_race_title">' + heat.displayname + ((heat.locked)?"\u2713":"") + '</div>';
+        html += `<div class="bracket_race_title ${heat.locked?"":"not_started"}">` + heat.displayname + ((heat.locked)?"\u2713":"") + '</div>';
         html += '<div class="bracket_race_pilots">';
 
         const filtered_slots = heat.slots.filter(slot => /*slot.seed_id*/true && slot.seed_rank);
@@ -594,7 +594,7 @@ function build_elimination_brackets(race_bracket_type, race_class_id, ddr_pilot_
                 let pilot_node_index = slot.node_index;
                 const channel = rotorhazard.nodes[pilot_node_index].fObj.key || '-';
 
-                html += '<div class="bracket_race_pilot" style="">';
+                html += '<div class="bracket_race_pilot">';
                 
 
 

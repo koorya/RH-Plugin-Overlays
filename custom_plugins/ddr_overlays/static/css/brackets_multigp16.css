@@ -24,7 +24,7 @@
     border: 1px solid #013e77;
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: #fff;
     /*display: inline-block;*/
 }
@@ -36,6 +36,19 @@
     text-align: center;
     background-color: #013e77;
     color: #fff;
+}
+
+.bracket_race_title.not_started {
+
+    background-color: #6d7780;
+}
+
+#loser_bracket_content > div > div >.bracket_race_title {
+    background-color: #771c01;
+}
+
+#loser_bracket_content > div > div >.bracket_race_title.not_started {
+    background-color: #766560;
 }
 
 .bracket_race_pilots {
