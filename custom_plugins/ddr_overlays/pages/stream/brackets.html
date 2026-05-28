@@ -81,6 +81,7 @@
         // get pi time
         rotorhazard.pi_time_request = window.performance.now();
         socket.emit('get_pi_time');
+        socket.emit('load_data',  {'load_types': ['leaderboard', 'result_data', 'heat_data', 'class_data', 'pilot_data', 'frequency_data']});
 
         socket.on('language', default_handler['language']);
 
@@ -140,7 +141,7 @@
 
             <div class="bracket_group">
                 <div class="bracket_group_title">
-                    Winner Bracket
+                    <!-- Winner Bracket -->
                 </div>
 
                 <div id="winner_bracket_content" class="bracket_group_content">
@@ -182,7 +183,7 @@
 
             </div>
 
-            <div class="bracket_group" style="position: relative; top: -569px; left: 308px;">
+            <div class="bracket_group" style="position: relative; top: -350px; left: 260px;">
                 <div class="bracket_group_title">
                     <!-- Lower Bracket -->
                 </div>

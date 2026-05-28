@@ -1,0 +1,99 @@
+@layer reset {
+  /* 1. Use a more-intuitive box-sizing model */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margins/padding for a clean slate */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 3. Allow percentage-based heights in the application */
+  html, body {
+    height: 100%;
+  }
+
+  /* 4. Improve text rendering and baseline line-height */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 6. Remove built-in form typography styles */
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 8. Fix 'revert' behavior for hidden attribute */
+  [hidden] {
+    display: none !important;
+  }
+}
+
+
+/* Добавляем стили поверх твоего сброса */
+
+body {
+  /* Жестко фиксируем размеры */
+  width: 1920px;
+  height: 1080px;
+  
+  /* Прячем любые ползунки прокрутки, они в оверлеях не нужны и только мешают */
+  overflow: hidden; 
+  
+  /* Устанавливаем фон */
+  /* background-image: url('/dvr-overlay-mn-sample.svg'); */
+  
+  /* Заставляем фон быть ровно 1920x1080 */
+  background-size: 1920px 1080px; 
+  background-position: top left;
+  background-repeat: no-repeat;
+  
+  /* Делаем фон прозрачным (если SVG не перекрывает весь холст) */
+  background-color: transparent; 
+}
+
+/* React по умолчанию рендерится в <div id="root">. 
+   Заставляем его занимать все 1920x1080 пикселей нашего body */
+#root {
+  width: 100%;
+  height: 100%;
+  
+  /* Если внутри #root элементы будут позиционироваться абсолютно (что часто бывает в оверлеях), 
+     root должен быть relative */
+  position: relative; 
+}
+
+.overlay-container {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: -1; /* Отправляем на задний план */
+}
+
+.overlay-content {
+  position: relative; /* Чтобы контент был поверх фона */
+  z-index: 1;
+}
