@@ -48,7 +48,6 @@ export const useNodeLaps = (
     });
 
     const displayLaps = processedLaps;
-    console.log(displayLaps);
 
     if (nodeIndex.finished_flag) {
       lapStatusText = "FINISHED";

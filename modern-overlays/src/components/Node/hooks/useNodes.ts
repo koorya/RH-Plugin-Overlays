@@ -68,7 +68,6 @@ export const useNodeLaps = (
     // 1. Сохраняем круги в стейт
     // setDisplayLaps(processedLaps);
     const displayLaps = processedLaps;
-    console.log(displayLaps);
 
     // 2. Вычисляем и сохраняем текстовый статус
     if (nodeIndex.finished_flag) {

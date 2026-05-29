@@ -77,13 +77,6 @@ body {
   position: relative; 
 }
 
-.overlay-container {
-  width: 1920px;
-  height: 1080px;
-  position: relative;
-  overflow: hidden;
-}
-
 .overlay-background {
   position: absolute;
   top: 0;
@@ -91,9 +84,4 @@ body {
   width: 1920px;
   height: 1080px;
   z-index: -1; /* Отправляем на задний план */
-}
-
-.overlay-content {
-  position: relative; /* Чтобы контент был поверх фона */
-  z-index: 1;
 }
