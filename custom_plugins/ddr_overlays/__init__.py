@@ -8,7 +8,7 @@ import zipfile
 
 from RHUI import UIField, UIFieldType, UIFieldSelectOption
 
-from flask import jsonify, request, templating
+from flask import jsonify, request, templating, send_from_directory
 from flask.blueprints import Blueprint
 
 logger = logging.getLogger(__name__)
@@ -43,6 +43,42 @@ def initialize(rhapi):
         static_folder='static',
         static_url_path='/ddr_overlays/static'
     )
+
+    @bp.route('/ddr_overlays/react')
+    @bp.route('/ddr_overlays/react/<path:path>')
+    def ddr_overlays_react_app(path=''):
+
+        rhapi.ui.socket_listen('get_next_heat', get_next_heat)
+        dist_dir = os.path.join(os.path.dirname(__file__), 'react')
+        
+        if path and os.path.exists(os.path.join(dist_dir, path)):
+            return send_from_directory(dist_dir, path)
+        
+        return send_from_directory(dist_dir, 'index.html')
+    
+    def get_next_heat(heat_id):
+        regen_heat = False
+        heat = rhapi.db.heat_by_id(rhapi.race.heat)
+        if heat.class_id:
+            raceclass = rhapi.db.raceclass_by_id(heat.class_id)
+            if raceclass.round_type == 1:
+                if raceclass.rounds == 0 or heat.group_id + 1 < raceclass.rounds:
+                    # Regenerate to new heat + group
+                    broadcast_next_heat(heat_id)
+                    return
+
+        next_heat_id = rhapi._racecontext.rhdata.get_next_heat_id(heat_id, regen_heat)
+        result = rhapi._racecontext.heatautomator.calc_heat(next_heat_id, True)
+        displayempty = False
+        if result == 'no-heat':
+            displayempty = True
+        broadcast_next_heat(next_heat_id, displayempty)
+
+    def broadcast_next_heat(next_heat_id, displayempty):
+        rhapi.ui.broadcast_heats()
+        rhapi.ui.socket_broadcast('next_heat_data', {'displayEmpty': displayempty, 'nextHeatId': next_heat_id})
+
+
 
     ### home page ###
     @bp.route('/ddr_overlays')

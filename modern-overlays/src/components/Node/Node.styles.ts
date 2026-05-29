@@ -25,10 +25,9 @@ export const Position = styled.div`
 `;
 
 export const DVRNodes = styled.div`
-  margin-left: 369px;
-  margin-top: 20px;
-  border: solid 1px red;
-  /* position: absolute; */
+  margin-left: 32px;
+  margin-top: 3px;
+  max-width: 1380px;
   display: flex;
   flex-wrap: wrap;
   gap: 25px;

@@ -15,7 +15,8 @@
     "@fontsource/inter": "^5.2.8",
     "@fontsource/teko": "^5.2.7",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.6",
+    "socket.io-client": "^4.8.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

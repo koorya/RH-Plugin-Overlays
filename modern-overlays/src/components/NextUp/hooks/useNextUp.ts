@@ -11,7 +11,9 @@ export const useNextUp = () => {
     .map((slot, idx) => {
       return {
         pilot: pilots?.find(({ pilot_id }) => pilot_id === slot.pilot_id),
-        freq: freq ? `${freq.fdata[idx].band}${freq.fdata[idx].channel}` : "",
+        freq: freq
+          ? `${freq?.fdata[idx]?.band}${freq?.fdata[idx]?.channel}`
+          : "",
         slot,
       };
     })
