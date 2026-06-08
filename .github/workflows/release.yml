@@ -1,0 +1,43 @@
+name: Build and Release Plugin
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: modern-overlays/pnpm-lock.yaml
+
+      - name: Install Dependencies
+        working-directory: modern-overlays
+        run: pnpm i --frozen-lockfile
+
+      - name: Build React App
+        working-directory: modern-overlays
+        run: pnpm build
+
+      - name: Create Release Archive
+        run: |
+          zip -r plugin-release.zip custom_plugins/ddr_overlays
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: plugin-release.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
